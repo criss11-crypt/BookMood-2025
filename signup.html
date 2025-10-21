@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Crear cuenta - BookMood</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;
+        }
+        .card{
+            width:100%;max-width:900px;background:#fff;border-radius:16px;overflow:hidden;display:flex;
+            box-shadow:0 20px 60px rgba(0,0,0,.25);
+        }
+        .left{
+            flex:1;padding:40px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+        }
+        .left img{width:140px;height:auto;margin-bottom:20px}
+        .right{flex:1;padding:40px;display:flex;flex-direction:column;justify-content:center}
+        h2{color:#333;margin-bottom:10px;font-size:28px}
+        .subtitle{color:#666;margin-bottom:20px}
+        form{display:flex;flex-direction:column;gap:12px}
+        label{font-size:14px;color:#444}
+        input{padding:12px;border:1px solid #ddd;border-radius:8px;font-size:15px}
+        .btn{padding:12px;border:none;border-radius:8px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-weight:600;cursor:pointer;margin-top:8px}
+        .actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:14px}
+        .actions a{color:#667eea;text-decoration:none;font-weight:600}
+        @media(max-width:760px){.card{flex-direction:column}.left{padding:24px}.right{padding:24px}}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="left">
+            <img src="img\removed.png" alt="BookMood logo">
+            <p>Únete a BookMood y descubre lecturas que conecten con tus emociones.</p>
+        </div>
+
+        <div class="right">
+            <h2>Crear cuenta</h2>
+            <p class="subtitle">Regístrate para empezar tu aventura literaria</p>
+
+            <form id="signupForm">
+                <label>Correo
+                    <input type="email" id="email" required placeholder="tu@email.com">
+                </label>
+
+                <label>Contraseña
+                    <input type="password" id="password" required placeholder="••••••••">
+                </label>
+
+                <label>Confirmar contraseña
+                    <input type="password" id="confirm" required placeholder="••••••••">
+                </label>
+
+                <button type="submit" class="btn">Crear cuenta</button>
+
+                <div class="actions">
+                    <span>¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const pwd = document.getElementById('password').value;
+            const conf = document.getElementById('confirm').value;
+            if(!email || !pwd){ alert('Completa todos los campos'); return; }
+            if(pwd !== conf){ alert('Las contraseñas no coinciden'); return; }
+            alert('Cuenta creada (demo). Ahora puedes iniciar sesión.');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
