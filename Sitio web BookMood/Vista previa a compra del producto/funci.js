@@ -9,7 +9,7 @@ const bookData = {
   title: "La sombra del viento",
   author: "Carlos Ruiz Zafón",
   price: 18.90,
-  currency: "€",
+  currency: "$",
   description: `En una Barcelona secreta y literaria, un joven llamado Daniel descubre un libro que cambiará su vida.
   Una novela con misterio, intriga y homenaje a los libros.`,
   language: "ES",
