@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería Digital</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<!-- Barra azul delgada -->
+<div class="top-bar"></div>
+
+<!-- Header con logo y menú -->
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <img src="img/logo.png" alt="Mi librería">
+        </div>
+        <nav class="menu">
+            <a href="#">Inicio</a>
+            <a href="#">Comunidad</a>
+            <a href="#">Categorias</a>
+            <a href="#" id="recomendacionesLink">
+    Recomendaciones
+    <span id="notifBadge" class="notif-badge">●</span>
+</a>
+            <a href="#">Oficina</a>
+            <a href="#" id="cartLink">Carrito (<span id="cartCount">0</span>)</a>
+            <div class="user-menu">
+        <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="Usuario" class="user-icon" id="userIcon">
+        <div class="user-dropdown" id="userDropdown">
+            <a href="#" id="logoutBtn">Cerrar sesión</a>
+        </div>
+    </div>
+        </nav>
+    </div>
+    <div class="slogan">
+        <p>"La librería digital que conecta con tus emociones con la lectura perfecta, en el momento adecuado"</p>
+    </div>
+</header>
+
+<!-- Barra de búsqueda y ordenar por -->
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Buscar por título, autor, género, año...">
+    <div class="sort-container">
+        <label for="sortSelect">Ordenar por:</label>
+        <select id="sortSelect">
+            <option value="default">Seleccionar</option>
+            <option value="recent">Más reciente</option>
+            <option value="oldest">Más viejo</option>
+            <option value="trending">Tendencias</option>
+            <option value="bestseller">Más vendido</option>
+        </select>
+    </div>
+</div>
+
+<!-- Secciones destacadas -->
+<div class="section">
+    <h2>Tendencias</h2>
+    <div class="section-cards" id="trendingSection">
+        <!-- Tarjetas de libros de tendencias -->
+    </div>
+</div>
+
+<div class="section">
+    <h2>Descubre lo nuevo</h2>
+    <div class="section-cards" id="newSection">
+        <!-- Tarjetas de libros nuevos -->
+    </div>
+</div>
+
+<!-- Catálogo completo -->
+<h2 style="text-align:center; margin-top:30px;">Catálogo completo</h2>
+<div class="catalog" id="catalog">
+    <!-- Todos los libros -->
+</div>
+
+<script src="funciones.js"></script>
+</body>
+</html>
+
+
+
+
