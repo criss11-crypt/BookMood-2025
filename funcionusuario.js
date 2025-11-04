@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ----------------------------------------------------
+    // Lógica para aplicar el Modo Oscuro al cargar la página (AÑADIDO)
+    // ----------------------------------------------------
+    const currentMode = localStorage.getItem('bookmood-mode');
+    // Si el valor guardado es 'dark', aplica la clase al body
+    if (currentMode === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+    // ----------------------------------------------------
+
     // Nota: El manejo del userIcon, userDropdown y logoutBtn
     // ya se hace en el archivo principal (funciones.js), 
     // pero lo incluimos por si no se carga ese archivo.
