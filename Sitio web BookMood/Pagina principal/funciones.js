@@ -77,8 +77,60 @@ function updateCartCount() {
     cartCount.textContent = cart.length;
 }
 
+// Elementos del DOM para la navegación
 const notifBadge = document.getElementById('notifBadge');
 const recomendacionesLink = document.getElementById('recomendacionesLink');
+const userIcon = document.getElementById('userIcon');
+const userDropdown = document.getElementById('userDropdown');
+const logoutBtn = document.getElementById('logoutBtn');
+const cartLink = document.getElementById('cartLink');
+const configBtn = document.getElementById('configBtn');
+
+// Gestión del menú de usuario
+userIcon.addEventListener('click', () => {
+    userDropdown.style.display = userDropdown.style.display === 'block' ? 'none' : 'block';
+});
+
+// Cerrar el menú cuando se hace clic fuera
+document.addEventListener('click', (e) => {
+    if (!userIcon.contains(e.target) && !userDropdown.contains(e.target)) {
+        userDropdown.style.display = 'none';
+    }
+});
+
+// Función para verificar si el usuario está autenticado
+function checkAuth() {
+    const isAuthenticated = localStorage.getItem('bookMoodAuth');
+    if (!isAuthenticated) {
+        window.location.href = '../../login.html';
+        return false;
+    }
+    return true;
+}
+
+// Event listeners para la navegación
+cartLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (checkAuth()) {
+        window.location.href = '../../shop.html';
+    }
+});
+
+recomendacionesLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (checkAuth()) {
+        // Aquí iría la lógica para mostrar recomendaciones
+        notifBadge.style.display = 'none';
+    }
+});
+
+// Función para cerrar sesión
+logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    localStorage.removeItem('bookMoodAuth');
+    localStorage.removeItem('bookMoodUser');
+    window.location.href = '../../login.html';
+});
 
 // Simulación de detección de "nueva recomendación"
 function checkForNewRecommendations() {

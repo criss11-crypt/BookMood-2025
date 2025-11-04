@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Carrito de compras | BookMood</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f6f7fb; min-height: 100vh; margin:0; }
+        .mainbar {
+            width: 100vw;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            box-shadow: 0 2px 12px rgba(102,126,234,0.15);
+            padding: 10px 32px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        .logo-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .logo-btn img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+        .container { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.18); padding: 32px; }
+        h2 { color: #333; margin-bottom: 18px; }
+    .empty { color: #888; text-align: center; margin: 40px 0; }
+    .btn { 
+        background: linear-gradient(135deg,#667eea,#764ba2); 
+        color: #fff; 
+        border: none; 
+        border-radius: 8px; 
+        padding: 12px 24px; 
+        font-weight: 600; 
+        cursor: pointer; 
+        margin-top: 18px;
+        transition: all 0.3s ease;
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+    }
+    .btn:active {
+        transform: translateY(0);
+    }
+    .btn.secondary {
+        background: #fff;
+        color: #667eea;
+        border: 2px solid #667eea;
+    }
+    .cart-list { 
+        width: 100%; 
+        border-collapse: collapse; 
+        margin-bottom: 24px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    .cart-list th, .cart-list td { 
+        padding: 16px; 
+        border-bottom: 1px solid #eee; 
+        text-align: left; 
+    }
+    .cart-list th { 
+        background: #f0f2ff; 
+        font-weight: 600;
+        color: #4a5568;
+    }
+    .cart-img { width:48px; height:64px; object-fit:cover; border-radius:4px; }
+    .qty-box { display:flex; align-items:center; gap:6px; }
+    .qty-btn { background:#eee; border:none; border-radius:4px; padding:2px 8px; font-size:16px; cursor:pointer; }
+    .del-btn { background:#ff6b6b; color:#fff; border:none; border-radius:6px; padding:4px 10px; font-size:14px; cursor:pointer; }
+    .total { font-size:18px; font-weight:700; color:#333; text-align:right; margin-bottom:18px; }
+    </style>
+</head>
+<body>
+    <div class="mainbar">
+        <button class="logo-btn" id="logoBtn" title="Inicio">
+            <img src="img/removed.png" alt="BookMood logo">
+        </button>
+        <nav>
+            <button class="btn" onclick="window.location.href='Sitio web BookMood/Pagina principal/principal.html'" style="margin: 0;">Volver a la tienda</button>
+        </nav>
+    </div>
+    <div class="container" style="margin-top:80px;">
+        <h2>Carrito de compras</h2>
+        <div id="cartItems"></div>
+        <div class="total" id="cartTotal"></div>
+        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+            <button class="btn secondary" id="clearCartBtn">Vaciar carrito</button>
+            <button class="btn" id="checkoutBtn">Proceder al pago</button>
+        </div>
+    </div>
+    <script>
+        // Logo click
+        document.getElementById('logoBtn').addEventListener('click', function() {
+            window.location.href = 'Sitio web BookMood/Pagina principal/principal.html';
+        });
+
+        // Checkout button
+        document.getElementById('checkoutBtn').addEventListener('click', function() {
+            const cart = readCart();
+            if (!cart.length) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+            // Aquí iría la lógica para proceder al pago
+            alert('Redirigiendo al proceso de pago...');
+        });
+
+        // Carrito funcional
+        const CART_KEY = 'bookMoodCart';
+        function readCart() {
+            try {
+                return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+            } catch (e) { return []; }
+        }
+        function writeCart(arr) {
+            localStorage.setItem(CART_KEY, JSON.stringify(arr));
+        }
+        function renderCart() {
+            const cart = readCart();
+            const cont = document.getElementById('cartItems');
+            const totalDiv = document.getElementById('cartTotal');
+            if (!cart.length) {
+                cont.innerHTML = '<div class="empty">Tu carrito está vacío.</div>';
+                totalDiv.textContent = '';
+                return;
+            }
+            let total = 0;
+            let html = '<table class="cart-list"><thead><tr><th></th><th>Título</th><th>Precio</th><th>Cantidad</th><th>Subtotal</th><th></th></tr></thead><tbody>';
+            cart.forEach((item, i) => {
+                const price = Number(item.price) || 0;
+                const subtotal = price * (item.qty || 1);
+                total += subtotal;
+                html += `<tr>
+                    <td><img src="${item.image || 'img/removed.png'}" class="cart-img"></td>
+                    <td>${item.title}</td>
+                    <td>$${price.toFixed(2)}</td>
+                    <td>
+                        <div class="qty-box">
+                            <button class="qty-btn" onclick="updateQty(${i},-1)">-</button>
+                            <span>${item.qty || 1}</span>
+                            <button class="qty-btn" onclick="updateQty(${i},1)">+</button>
+                        </div>
+                    </td>
+                    <td>$${subtotal.toFixed(2)}</td>
+                    <td><button class="del-btn" onclick="removeItem(${i})">Eliminar</button></td>
+                </tr>`;
+            });
+            html += '</tbody></table>';
+            cont.innerHTML = html;
+            totalDiv.textContent = 'Total: $' + total.toFixed(2);
+        }
+        function updateQty(idx, delta) {
+            let cart = readCart();
+            if (!cart[idx]) return;
+            cart[idx].qty = Math.max(1, (cart[idx].qty || 1) + delta);
+            writeCart(cart);
+            renderCart();
+        }
+        function removeItem(idx) {
+            let cart = readCart();
+            cart.splice(idx,1);
+            writeCart(cart);
+            renderCart();
+        }
+        document.getElementById('clearCartBtn').onclick = function() {
+            if (confirm('¿Vaciar todo el carrito?')) {
+                localStorage.removeItem(CART_KEY);
+                renderCart();
+            }
+        };
+        renderCart();
+    </script>
+</body>
+</html>
+            
