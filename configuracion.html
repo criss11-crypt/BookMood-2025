@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - BookMood</title>
+    <!-- Enlazamos al estilo principal para la barra de navegación -->
+    <link rel="stylesheet" href="Sitio web BookMood/Pagina principal/estilo.css"> 
+    <!-- Enlazamos al nuevo estilo específico de la configuración -->
+    <link rel="stylesheet" href="estiloconfiguracion.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- BARRA DE NAVEGACIÓN (Consistente con principal.html y usuario.html) -->
+<div class="top-bar"></div>
+
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <img src="img/removed.png" alt="BookMood Logo">
+        </div>
+        <nav class="menu">
+            <a href="Sitio web BookMood/Pagina principal/principal.html">Inicio</a>
+            <a href="#">Comunidad</a>
+            <a href="#">Categorias</a>
+            <a href="#" id="recomendacionesLink">
+                Recomendaciones
+                <span id="notifBadge" class="notif-badge">●</span>
+            </a>
+            <a href="usuario.html">Usuario</a>
+            <a href="#" id="cartLink">Carrito (<span id="cartCount">0</span>)</a>
+            <div class="user-menu">
+                <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="Usuario" class="user-icon" id="userIcon">
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#" id="logoutBtn">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTENIDO PRINCIPAL DE CONFIGURACIÓN -->
+<div class="settings-container">
+    <h1>Ajustes de la Aplicación y Cuenta</h1>
+    
+    <div class="settings-layout">
+        
+        <!-- Menú de Navegación Lateral -->
+        <aside class="settings-nav">
+            <button class="nav-item active" data-section="perfil">
+                <i class="icon">👤</i> Perfil y Cuenta
+            </button>
+            <button class="nav-item" data-section="interfaz">
+                <i class="icon">🎨</i> Interfaz del Sitio
+            </button>
+            <button class="nav-item" data-section="pago-envio">
+                <i class="icon">💳</i> Pagos y Envíos
+            </button>
+            <button class="nav-item" data-section="notificaciones">
+                <i class="icon">🔔</i> Notificaciones
+            </button>
+            <button class="nav-item" data-section="otros">
+                <i class="icon">⚙️</i> Otras Opciones
+            </button>
+            <!-- Opción para cerrar sesión (duplicada para visibilidad) -->
+            <button class="nav-item logout" id="logoutSettingsBtn">
+                <i class="icon">🚪</i> Cerrar Sesión
+            </button>
+        </aside>
+        
+        <!-- Área de Contenido de Ajustes -->
+        <main class="settings-content">
+            
+            <!-- 1. Ajustes de Cuenta y Perfil -->
+            <section id="perfil" class="settings-section active">
+                <h2>👤 Datos Personales y de Cuenta</h2>
+                <p class="section-description">Actualiza tu información personal, correo electrónico y foto de perfil.</p>
+                
+                <!-- Formulario de Datos Personales -->
+                <form class="setting-form">
+                    <label>Nombre Completo
+                        <input type="text" value="Lector BookMood">
+                    </label>
+                    <label>Correo Electrónico
+                        <input type="email" value="lector.bookmood@email.com">
+                    </label>
+                    <label>Visibilidad del Perfil
+                        <select>
+                            <option value="publico">Público (Otros usuarios pueden verte)</option>
+                            <option value="oculto">Oculto (Solo tú puedes ver tu perfil)</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="btn-guardar">Guardar Cambios</button>
+                </form>
+
+                <!-- Cambiar Contraseña -->
+                <h3>Cambiar Contraseña</h3>
+                <form class="setting-form">
+                    <label>Contraseña Actual
+                        <input type="password" placeholder="••••••••">
+                    </label>
+                    <label>Nueva Contraseña
+                        <input type="password" placeholder="••••••••">
+                    </label>
+                    <label>Confirmar Nueva Contraseña
+                        <input type="password" placeholder="••••••••">
+                    </label>
+                    <button type="submit" class="btn-guardar">Actualizar Contraseña</button>
+                </form>
+
+                <!-- Foto de Perfil -->
+                <h3>Foto de Perfil</h3>
+                <div class="profile-photo-management">
+                    <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="Foto de Perfil Actual" class="current-profile-photo">
+                    <button class="btn-accion">Subir Nueva Foto</button>
+                    <button class="btn-accion btn-eliminar">Eliminar Foto</button>
+                </div>
+            </section>
+
+            <!-- 2. Pagos y Envíos -->
+            <section id="pago-envio" class="settings-section">
+                <h2>💳 Métodos de Pago y Direcciones</h2>
+                <p class="section-description">Administra tus tarjetas, direcciones de envío y facturación para agilizar tus compras.</p>
+                
+                <h3>Métodos de Pago</h3>
+                <ul class="list-management">
+                    <li>Tarjeta VISA terminada en **4321** <button class="btn-accion-sm">Editar</button></li>
+                    <li>PayPal (lector.bookmood@email.com) <button class="btn-accion-sm">Eliminar</button></li>
+                </ul>
+                <button class="btn-accion">➕ Añadir Nuevo Método de Pago</button>
+                
+                <h3>Direcciones de Envío y Facturación</h3>
+                <ul class="list-management">
+                    <li>**Casa:** Calle Falsa 123, Ciudad de México <button class="btn-accion-sm">Editar</button></li>
+                    <li>**Oficina:** Avenida Siempre Viva, Bogotá <button class="btn-accion-sm">Establecer como principal</button></li>
+                </ul>
+                <button class="btn-accion">➕ Añadir Nueva Dirección</button>
+            </section>
+            
+            <!-- 3. Ajustes de Interfaz/Sitio Web -->
+            <section id="interfaz" class="settings-section">
+                <h2>🎨 Interfaz del Sitio Web</h2>
+                <p class="section-description">Personaliza la apariencia y el idioma de la aplicación BookMood.</p>
+                
+                <!-- Modo de Pantalla -->
+                <h3>Modo de Pantalla</h3>
+                <div class="toggle-option">
+                    <span>Modo Oscuro / Modo Claro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <!-- Idioma -->
+                <h3>Idioma</h3>
+                <select class="wide-select">
+                    <option value="es">Español (ES)</option>
+                    <option value="en">Inglés (EN)</option>
+                    <option value="pt">Portugués (PT)</option>
+                </select>
+                <button class="btn-guardar" style="margin-top: 20px;">Actualizar Idioma</button>
+            </section>
+            
+            <!-- 4. Notificaciones -->
+            <section id="notificaciones" class="settings-section">
+                <h2>🔔 Opciones de Notificación</h2>
+                <p class="section-description">Controla qué tipos de alertas y correos electrónicos deseas recibir.</p>
+                
+                <div class="toggle-option">
+                    <span>Notificaciones por Correo Electrónico (Ofertas y Novedades)</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                </div>
+                <div class="toggle-option">
+                    <span>Alertas de Estado de Pedido (Envío y Entrega)</span>
+                    <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                </div>
+                <div class="toggle-option">
+                    <span>Notificaciones de Interacción en Comunidad</span>
+                    <label class="switch"><input type="checkbox"><span class="slider round"></span></label>
+                </div>
+            </section>
+            
+            <!-- 5. Otras Opciones (Términos) -->
+            <section id="otros" class="settings-section">
+                <h2>⚙️ Términos y Soporte</h2>
+                <p class="section-description">Información legal y ayuda.</p>
+                
+                <p><a href="#" class="legal-link">Ver Términos y Condiciones de Uso</a></p>
+                <p><a href="#" class="legal-link">Ver Política de Privacidad</a></p>
+                <p><a href="#" class="legal-link">Contáctanos para Soporte</a></p>
+            </section>
+
+        </main>
+    </div>
+</div>
+
+<!-- El archivo JS principal (funciones.js) es necesario para el carrito, etc. -->
+<script src="Sitio web BookMood/Pagina principal/funciones.js"></script>
+<script src="funcionconfiguracion.js"></script>
+</body>
+</html>

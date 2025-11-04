@@ -1,0 +1,354 @@
+/* === Estilos Específicos para configuracion.html === */
+
+/* Contenedor principal para centrar y estructurar la página */
+.settings-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.settings-container h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.settings-layout {
+    display: flex;
+    gap: 30px;
+    min-height: 70vh;
+}
+
+/* --- Menú de Navegación Lateral --- */
+.settings-nav {
+    flex-basis: 250px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    align-self: flex-start; /* Se pega a la parte superior */
+}
+
+.nav-item {
+    width: 100%;
+    text-align: left;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    border-radius: 8px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item:hover {
+    background: #f0f0f0;
+    color: #2c3e50;
+}
+
+.nav-item.active {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+}
+
+.nav-item.active .icon {
+    color: white;
+}
+
+.nav-item .icon {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #3498db;
+}
+
+.nav-item.logout {
+    color: #e74c3c;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+.nav-item.logout:hover {
+    background: #fdd;
+    color: #c0392b;
+}
+.nav-item.logout .icon {
+    color: #e74c3c;
+}
+
+/* --- Área de Contenido de Ajustes --- */
+.settings-content {
+    flex-grow: 1;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.settings-section {
+    display: none; /* Oculto por defecto, se muestra con JS */
+}
+
+.settings-section.active {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.settings-section h2 {
+    color: #3498db;
+    margin-bottom: 10px;
+    font-size: 24px;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+.settings-section h3 {
+    color: #2c3e50;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.section-description {
+    color: #7f8c8d;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* Formulario */
+.setting-form label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+}
+
+.setting-form input, .setting-form select, .wide-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.btn-guardar {
+    padding: 10px 20px;
+    background-color: #667eea; /* Color de acción (púrpura) */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+}
+
+.btn-guardar:hover {
+    background-color: #764ba2;
+}
+
+.btn-accion {
+    padding: 8px 15px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-accion:hover {
+    background-color: #eaeaea;
+}
+
+.btn-accion.btn-eliminar {
+    background-color: #e74c3c;
+    color: white;
+    border: 1px solid #e74c3c;
+}
+.btn-accion.btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+/* Gestión de Fotos de Perfil */
+.profile-photo-management {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.current-profile-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #3498db;
+}
+
+/* Listas de gestión (Pagos, Direcciones) */
+.list-management {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.list-management li {
+    padding: 10px 0;
+    border-bottom: 1px dotted #eee;
+    color: #34495e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-accion-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.legal-link {
+    display: block;
+    margin-bottom: 10px;
+    color: #3498db;
+    text-decoration: none;
+}
+.legal-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Estilos de Toggle Switch (para Modo Oscuro/Notificaciones) --- */
+.toggle-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    color: #333;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #3498db;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* --- Modo Oscuro (se activa con JS) --- */
+body.dark-mode {
+    background: #1e1e1e;
+    color: #ecf0f1;
+}
+
+body.dark-mode .settings-container h1,
+body.dark-mode .settings-section h2,
+body.dark-mode .settings-section h3,
+body.dark-mode .settings-content,
+body.dark-mode .settings-nav,
+body.dark-mode header {
+    background: #2c2c2c;
+    color: #ecf0f1;
+}
+
+body.dark-mode .nav-item {
+    color: #ddd;
+}
+body.dark-mode .nav-item:hover {
+    background: #3e3e3e;
+    color: #ecf0f1;
+}
+
+body.dark-mode .setting-form input,
+body.dark-mode .setting-form select,
+body.dark-mode .wide-select {
+    background: #444;
+    border-color: #555;
+    color: #ecf0f1;
+}
+
+/* Media Query para móviles */
+@media (max-width: 800px) {
+    .settings-layout {
+        flex-direction: column;
+    }
+
+    .settings-nav {
+        flex-basis: auto;
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 10px;
+        box-shadow: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .nav-item {
+        flex-shrink: 0;
+        margin-bottom: 0;
+        padding: 10px 15px;
+    }
+    
+    .settings-container h1 {
+        margin-top: 0;
+    }
+}
