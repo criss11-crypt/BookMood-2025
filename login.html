@@ -13,7 +13,8 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* Fondo de la página: Blanco */
+            background: #fff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -33,21 +34,24 @@
 
         .left-panel {
             flex: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* CAMBIO: Panel izquierdo blanco */
+            background: #fff;
             padding: 60px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
+            /* CAMBIO: Texto oscuro para fondo claro */
+            color: #333;
             text-align: center;
+            border-right: 1px solid #eee;
         }
 
         .logo {
             font-size: 48px;
             font-weight: bold;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: none;
         }
 
         .tagline {
@@ -221,10 +225,8 @@
 
             .left-panel {
                 padding: 40px 20px;
-            }
-
-            .book-icon {
-                font-size: 80px;
+                border-right: none;
+                border-bottom: 1px solid #eee;
             }
 
             .right-panel {
@@ -256,7 +258,7 @@
                 </div>
 
                 <div class="forgot-password">
-                    <a href="#forgot">¿Olvidaste tu contraseña?</a>
+                    <a href="forgot.html">¿Olvidaste tu contraseña?</a>
                 </div>
 
                 <button type="submit" class="btn-login">Iniciar Sesión</button>
@@ -283,7 +285,7 @@
             </div>
 
             <div class="signup-link">
-                ¿No tienes cuenta? <a href="#signup">Regístrate aquí</a>
+                ¿No tienes cuenta? <a href="signup.html">Regístrate aquí</a>
             </div>
         </div>
     </div>
@@ -296,7 +298,9 @@
             const password = document.getElementById('password').value;
             
             if (email && password) {
-                alert('¡Bienvenido a BookMood! (Esta es una demo)');
+                alert('¡Bienvenido a BookMood! Iniciando sesión...');
+                // REDIRECCIÓN CON LA RUTA COMPLETA DE SUBFOLDER
+                window.location.href = 'Sitio web BookMood/Pagina principal/principal.html'; 
             }
         });
 
