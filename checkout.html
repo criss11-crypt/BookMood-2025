@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | BookMood</title>
+    <link rel="stylesheet" href="estilocheckout.css"> 
+    <style>
+        /* Estilos básicos de botones */
+        .btn { padding: 12px 25px; border-radius: 8px; font-size: 1em; cursor: pointer; transition: background 0.3s; }
+        .primary-btn { background-color: #3498db; color: white; border: none; }
+        .primary-btn:hover { background-color: #2980b9; }
+        .secondary-btn { background-color: #ecf0f1; color: #34495e; border: 1px solid #bdc3c7; }
+        .secondary-btn:hover { background-color: #dcdfe3; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="width: 100%; height: 60px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: fixed; top: 0; z-index: 100; display: flex; align-items: center; padding: 0 20px;">
+        <a href="shop.html" style="text-decoration: none; color: #3498db;">← Volver al Carrito</a>
+    </div>
+</header>
+
+<div class="checkout-container">
+    <h1>💳 Proceso de Pago (Checkout)</h1>
+
+    <div class="checkout-steps">
+        <span id="step-envio" class="step active">1. Envío y Dirección</span>
+        <span id="step-pago" class="step">2. Método de Pago</span>
+        <span id="step-confirmacion" class="step">3. Confirmación Final</span>
+    </div>
+
+    <section id="shipping-section" class="checkout-section">
+        <h2>1. Dirección y Envío</h2>
+        <p class="digital-notice hidden">🎉 **Carrito solo Digital:** No se requiere envío. Puede proceder al pago.</p>
+        
+        <form id="shippingForm" class="form-card">
+            <label>Nombre completo <input type="text" id="shipName" required value="Juan Pérez"></label>
+            <label>Dirección (Calle, Número) <input type="text" id="shipAddress1" required value="Calle Falsa 123"></label>
+            <label>Ciudad <input type="text" id="shipCity" required value="San Salvador"></label>
+            <label>Código Postal <input type="text" id="shipZip" required value="01101"></label>
+            <label>Método de Envío 
+                <select id="shipMethod" required>
+                    <option value="estandar" data-price="5.00">Estándar (3-5 días) - $5.00</option>
+                    <option value="express" data-price="15.00" >Express (1-2 días) - $15.00</option>
+                </select>
+            </label>
+            
+            <button type="submit" class="btn primary-btn">Continuar al Pago</button>
+        </form>
+    </section>
+
+    <section id="payment-section" class="checkout-section hidden">
+        <h2>2. Método de Pago</h2>
+        <form id="paymentForm" class="form-card">
+            <div class="payment-options">
+                <label><input type="radio" name="payment_method" value="card" checked> Tarjeta de Crédito/Débito (Visa, Mastercard)</label>
+                <label><input type="radio" name="payment_method" value="paypal"> PayPal</label>
+                <label><input type="radio" name="payment_method" value="transfer"> Transferencia Bancaria</label>
+            </div>
+            
+            <div id="cardDetails">
+                <label>Número de Tarjeta <input type="text" placeholder="XXXX XXXX XXXX XXXX" required></label>
+                <label>Nombre en la Tarjeta <input type="text" placeholder="Nombre Apellido" required></label>
+                <div style="display: flex; gap: 20px;">
+                    <label style="flex: 1;">Vencimiento <input type="text" placeholder="MM/AA" required></label>
+                    <label style="flex: 1;">CVV <input type="text" placeholder="XXX" required></label>
+                </div>
+            </div>
+
+            <button type="button" id="backBtn" class="btn secondary-btn">Volver</button>
+            <button type="submit" class="btn primary-btn">Revisar y Confirmar Pedido</button>
+        </form>
+    </section>
+
+    <section id="confirmation-section" class="checkout-section hidden">
+        <h2>3. Confirmación Final</h2>
+        <div class="confirmation-summary form-card">
+            <p>Por favor, revise los detalles de su pedido y método de pago antes de finalizar.</p>
+            
+            <h3>Dirección de Envío</h3>
+            <p id="summaryAddress">-- Sin Envío Requerido --</p>
+            
+            <h3>Resumen de Ítems</h3>
+            <ul id="orderSummaryList">
+                </ul>
+
+            <p class="final-total">Total a Pagar: <span id="finalTotal">$0.00</span></p>
+        </div>
+        
+        <button id="placeOrderBtn" class="btn primary-btn large">PAGAR Y FINALIZAR PEDIDO</button>
+    </section>
+</div>
+
+<script src="funcioncheckout.js"></script>
+</body>
+</html>

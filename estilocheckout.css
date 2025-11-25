@@ -1,0 +1,155 @@
+/* === Estilos Específicos para checkout.html === */
+
+.checkout-container {
+    max-width: 800px;
+    margin: 100px auto 40px; 
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-container h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Indicador de Pasos */
+.checkout-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.checkout-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    height: 3px;
+    background: #ecf0f1;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.step {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    color: #95a5a6;
+    padding: 5px 10px;
+    border: 2px solid #bdc3c7;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.step.active {
+    color: #fff;
+    background: #3498db;
+    border-color: #3498db;
+}
+
+/* Secciones de Checkout */
+.checkout-section {
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.checkout-section h2 {
+    color: #3498db;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+}
+
+.hidden {
+    /* CLAVE para la lógica condicional: oculta secciones */
+    display: none !important;
+}
+
+/* Formularios */
+.form-card label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+.form-card input, .form-card select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-card button {
+    margin-top: 15px;
+    width: auto;
+    min-width: 150px;
+}
+
+.payment-options label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.payment-options input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Sección de Confirmación */
+.confirmation-summary {
+    border: none;
+    padding: 0;
+}
+.confirmation-summary h3 {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ecf0f1;
+}
+#orderSummaryList {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+#orderSummaryList li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #f4f4f4;
+    color: #555;
+}
+.final-total {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #2ecc71;
+    text-align: right;
+    padding-top: 10px;
+    border-top: 2px solid #2ecc71;
+    margin-top: 15px;
+}
+.large {
+    width: 100%;
+}
+.digital-notice {
+    color: #27ae60;
+    background: #e6f7f0;
+    padding: 15px;
+    border: 1px solid #2ecc71;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
