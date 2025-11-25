@@ -1,19 +1,16 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuración - BookMood</title>
-    <!-- Enlazamos al estilo principal para la barra de navegación -->
+    <title data-i18n="title-page">Configuración - BookMood</title>
     <link rel="stylesheet" href="Sitio web BookMood/Pagina principal/estilo.css"> 
-    <!-- Enlazamos al nuevo estilo específico de la configuración -->
     <link rel="stylesheet" href="estiloconfiguracion.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- BARRA DE NAVEGACIÓN (Consistente con principal.html y usuario.html) -->
 <div class="top-bar"></div>
 
 <header>
@@ -22,182 +19,166 @@
             <img src="img/removed.png" alt="BookMood Logo">
         </div>
         <nav class="menu">
-            <a href="Sitio web BookMood/Pagina principal/principal.html">Inicio</a>
-            <a href="#">Comunidad</a>
-            <a href="#">Categorias</a>
-            <a href="#" id="recomendacionesLink">
+            <a href="Sitio web BookMood/Pagina principal/principal.html" data-i18n="nav-inicio">Inicio</a>
+            <a href="#" data-i18n="nav-comunidad">Comunidad</a>
+            <a href="#" data-i18n="nav-categorias">Categorias</a>
+            <a href="#" id="recomendacionesLink" data-i18n="nav-recomendaciones">
                 Recomendaciones
                 <span id="notifBadge" class="notif-badge">●</span>
             </a>
-            <a href="usuario.html">Usuario</a>
-            <a href="#" id="cartLink">Carrito (<span id="cartCount">0</span>)</a>
+            <a href="usuario.html" data-i18n="nav-usuario">Usuario</a>
+            <a href="#" id="cartLink" data-i18n="nav-carrito">Carrito (<span id="cartCount">0</span>)</a>
             <div class="user-menu">
                 <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="Usuario" class="user-icon" id="userIcon">
                 <div class="user-dropdown" id="userDropdown">
-                    <a href="#" id="logoutBtn">Cerrar sesión</a>
+                    <a href="#" id="logoutBtn" data-i18n="nav-cerrar-sesion">Cerrar sesión</a>
                 </div>
             </div>
         </nav>
     </div>
 </header>
 
-<!-- CONTENIDO PRINCIPAL DE CONFIGURACIÓN -->
 <div class="settings-container">
-    <h1>Ajustes de la Aplicación y Cuenta</h1>
+    <h1 data-i18n="title-main">Ajustes de la Aplicación y Cuenta</h1>
     
     <div class="settings-layout">
         
-        <!-- Menú de Navegación Lateral -->
         <aside class="settings-nav">
-            <button class="nav-item active" data-section="perfil">
+            <button class="nav-item active" data-section="perfil" data-i18n="perfil">
                 <i class="icon">👤</i> Perfil y Cuenta
             </button>
-            <button class="nav-item" data-section="interfaz">
+            <button class="nav-item" data-section="interfaz" data-i18n="interfaz">
                 <i class="icon">🎨</i> Interfaz del Sitio
             </button>
-            <button class="nav-item" data-section="pago-envio">
+            <button class="nav-item" data-section="pago-envio" data-i18n="pago-envio">
                 <i class="icon">💳</i> Pagos y Envíos
             </button>
-            <button class="nav-item" data-section="notificaciones">
+            <button class="nav-item" data-section="notificaciones" data-i18n="notificaciones">
                 <i class="icon">🔔</i> Notificaciones
             </button>
-            <button class="nav-item" data-section="otros">
+            <button class="nav-item" data-section="otros" data-i18n="otros">
                 <i class="icon">⚙️</i> Otras Opciones
             </button>
-            <!-- Opción para cerrar sesión (duplicada para visibilidad) -->
-            <button class="nav-item logout" id="logoutSettingsBtn">
+            <button class="nav-item logout" id="logoutSettingsBtn" data-i18n="cerrar-sesion-btn">
                 <i class="icon">🚪</i> Cerrar Sesión
             </button>
         </aside>
         
-        <!-- Área de Contenido de Ajustes -->
         <main class="settings-content">
             
-            <!-- 1. Ajustes de Cuenta y Perfil -->
             <section id="perfil" class="settings-section active">
-                <h2>👤 Datos Personales y de Cuenta</h2>
-                <p class="section-description">Actualiza tu información personal, correo electrónico y foto de perfil.</p>
+                <h2 data-i18n="perfil-titulo">👤 Datos Personales y de Cuenta</h2>
+                <p class="section-description" data-i18n="perfil-desc">Actualiza tu información personal, correo electrónico y foto de perfil.</p>
                 
-                <!-- Formulario de Datos Personales -->
                 <form class="setting-form">
-                    <label>Nombre Completo
+                    <label data-i18n="label-nombre">Nombre Completo
                         <input type="text" value="Lector BookMood">
                     </label>
-                    <label>Correo Electrónico
+                    <label data-i18n="label-email">Correo Electrónico
                         <input type="email" value="lector.bookmood@email.com">
                     </label>
-                    <label>Visibilidad del Perfil
+                    <label data-i18n="label-visibilidad">Visibilidad del Perfil
                         <select>
-                            <option value="publico">Público (Otros usuarios pueden verte)</option>
-                            <option value="oculto">Oculto (Solo tú puedes ver tu perfil)</option>
+                            <option value="publico" data-i18n="option-publico">Público (Otros usuarios pueden verte)</option>
+                            <option value="oculto" data-i18n="option-oculto">Oculto (Solo tú puedes ver tu perfil)</option>
                         </select>
                     </label>
-                    <button type="submit" class="btn-guardar">Guardar Cambios</button>
+                    <button type="submit" class="btn-guardar" data-i18n="btn-guardar">Guardar Cambios</button>
                 </form>
 
-                <!-- Cambiar Contraseña -->
-                <h3>Cambiar Contraseña</h3>
+                <h3 data-i18n="pass-titulo">Cambiar Contraseña</h3>
                 <form class="setting-form">
-                    <label>Contraseña Actual
+                    <label data-i18n="label-pass-actual">Contraseña Actual
                         <input type="password" placeholder="••••••••">
                     </label>
-                    <label>Nueva Contraseña
+                    <label data-i18n="label-pass-nueva">Nueva Contraseña
                         <input type="password" placeholder="••••••••">
                     </label>
-                    <label>Confirmar Nueva Contraseña
+                    <label data-i18n="label-pass-confirmar">Confirmar Nueva Contraseña
                         <input type="password" placeholder="••••••••">
                     </label>
-                    <button type="submit" class="btn-guardar">Actualizar Contraseña</button>
+                    <button type="submit" class="btn-guardar" data-i18n="btn-actualizar-pass">Actualizar Contraseña</button>
                 </form>
 
-                <!-- Foto de Perfil -->
-                <h3>Foto de Perfil</h3>
+                <h3 data-i18n="foto-titulo">Foto de Perfil</h3>
                 <div class="profile-photo-management">
                     <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="Foto de Perfil Actual" class="current-profile-photo">
-                    <button class="btn-accion">Subir Nueva Foto</button>
-                    <button class="btn-accion btn-eliminar">Eliminar Foto</button>
+                    <button class="btn-accion" data-i18n="btn-subir-foto">Subir Nueva Foto</button>
+                    <button class="btn-accion btn-eliminar" data-i18n="btn-eliminar-foto">Eliminar Foto</button>
                 </div>
             </section>
 
-            <!-- 2. Pagos y Envíos -->
             <section id="pago-envio" class="settings-section">
-                <h2>💳 Métodos de Pago y Direcciones</h2>
-                <p class="section-description">Administra tus tarjetas, direcciones de envío y facturación para agilizar tus compras.</p>
+                <h2 data-i18n="pago-envio-titulo">💳 Métodos de Pago y Direcciones</h2>
+                <p class="section-description" data-i18n="pago-envio-desc">Administra tus tarjetas, direcciones de envío y facturación para agilizar tus compras.</p>
                 
-                <h3>Métodos de Pago</h3>
+                <h3 data-i18n="pago-metodos-titulo">Métodos de Pago</h3>
                 <ul class="list-management">
-                    <li>Tarjeta VISA terminada en **4321** <button class="btn-accion-sm">Editar</button></li>
-                    <li>PayPal (lector.bookmood@email.com) <button class="btn-accion-sm">Eliminar</button></li>
+                    <li data-i18n-li="pago-tarjeta-ejemplo">Tarjeta VISA terminada en **4321** <button class="btn-accion-sm" data-i18n="btn-editar">Editar</button></li>
+                    <li data-i18n-li="pago-paypal-ejemplo">PayPal (lector.bookmood@email.com) <button class="btn-accion-sm" data-i18n="btn-eliminar">Eliminar</button></li>
                 </ul>
-                <button class="btn-accion">➕ Añadir Nuevo Método de Pago</button>
+                <button class="btn-accion" data-i18n="btn-anadir-pago">➕ Añadir Nuevo Método de Pago</button>
                 
-                <h3>Direcciones de Envío y Facturación</h3>
+                <h3 data-i18n="envio-direcciones-titulo">Direcciones de Envío y Facturación</h3>
                 <ul class="list-management">
-                    <li>**Casa:** Calle Falsa 123, Ciudad de México <button class="btn-accion-sm">Editar</button></li>
-                    <li>**Oficina:** Avenida Siempre Viva, Bogotá <button class="btn-accion-sm">Establecer como principal</button></li>
+                    <li data-i18n-li="envio-casa-ejemplo">**Casa:** Calle Falsa 123, Ciudad de México <button class="btn-accion-sm" data-i18n="btn-editar">Editar</button></li>
+                    <li data-i18n-li="envio-oficina-ejemplo">**Oficina:** Avenida Siempre Viva, Bogotá <button class="btn-accion-sm" data-i18n="btn-establecer-principal">Establecer como principal</button></li>
                 </ul>
-                <button class="btn-accion">➕ Añadir Nueva Dirección</button>
+                <button class="btn-accion" data-i18n="btn-anadir-direccion">➕ Añadir Nueva Dirección</button>
             </section>
             
-            <!-- 3. Ajustes de Interfaz/Sitio Web -->
             <section id="interfaz" class="settings-section">
-                <h2>🎨 Interfaz del Sitio Web</h2>
-                <p class="section-description">Personaliza la apariencia y el idioma de la aplicación BookMood.</p>
+                <h2 data-i18n="interfaz-titulo">🎨 Interfaz del Sitio Web</h2>
+                <p class="section-description" data-i18n="interfaz-desc">Personaliza la apariencia y el idioma de la aplicación BookMood.</p>
                 
-                <!-- Modo de Pantalla -->
-                <h3>Modo de Pantalla</h3>
+                <h3 data-i18n="modo-titulo">Modo de Pantalla</h3>
                 <div class="toggle-option">
-                    <span>Modo Oscuro / Modo Claro</span>
+                    <span data-i18n="modo-label">Modo Oscuro / Modo Claro</span>
                     <label class="switch">
                         <input type="checkbox" id="darkModeToggle">
                         <span class="slider round"></span>
                     </label>
                 </div>
 
-                <!-- Idioma -->
-                <h3>Idioma</h3>
-                <select class="wide-select">
+                <h3 data-i18n="idioma-titulo">Idioma</h3>
+                <select class="wide-select" id="languageSelector">
                     <option value="es">Español (ES)</option>
                     <option value="en">Inglés (EN)</option>
-                    <option value="pt">Portugués (PT)</option>
                 </select>
-                <button class="btn-guardar" style="margin-top: 20px;">Actualizar Idioma</button>
+                <button class="btn-guardar" style="margin-top: 20px;" data-i18n="btn-actualizar-idioma">Actualizar Idioma</button>
             </section>
             
-            <!-- 4. Notificaciones -->
             <section id="notificaciones" class="settings-section">
-                <h2>🔔 Opciones de Notificación</h2>
-                <p class="section-description">Controla qué tipos de alertas y correos electrónicos deseas recibir.</p>
+                <h2 data-i18n="notificaciones-titulo">🔔 Opciones de Notificación</h2>
+                <p class="section-description" data-i18n="notificaciones-desc">Controla qué tipos de alertas y correos electrónicos deseas recibir.</p>
                 
                 <div class="toggle-option">
-                    <span>Notificaciones por Correo Electrónico (Ofertas y Novedades)</span>
+                    <span data-i18n="notif-email">Notificaciones por Correo Electrónico (Ofertas y Novedades)</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
                 </div>
                 <div class="toggle-option">
-                    <span>Alertas de Estado de Pedido (Envío y Entrega)</span>
+                    <span data-i18n="notif-pedidos">Alertas de Estado de Pedido (Envío y Entrega)</span>
                     <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
                 </div>
                 <div class="toggle-option">
-                    <span>Notificaciones de Interacción en Comunidad</span>
+                    <span data-i18n="notif-comunidad">Notificaciones de Interacción en Comunidad</span>
                     <label class="switch"><input type="checkbox"><span class="slider round"></span></label>
                 </div>
             </section>
             
-            <!-- 5. Otras Opciones (Términos) -->
             <section id="otros" class="settings-section">
-                <h2>⚙️ Términos y Soporte</h2>
-                <p class="section-description">Información legal y ayuda.</p>
+                <h2 data-i18n="otros-titulo">⚙️ Términos y Soporte</h2>
+                <p class="section-description" data-i18n="otros-desc">Información legal y ayuda.</p>
                 
-                <p><a href="#" class="legal-link">Ver Términos y Condiciones de Uso</a></p>
-                <p><a href="#" class="legal-link">Ver Política de Privacidad</a></p>
-                <p><a href="#" class="legal-link">Contáctanos para Soporte</a></p>
+                <p><a href="#" class="legal-link" data-i18n="link-terminos">Ver Términos y Condiciones de Uso</a></p>
+                <p><a href="#" class="legal-link" data-i18n="link-privacidad">Ver Política de Privacidad</a></p>
+                <p><a href="#" class="legal-link" data-i18n="link-soporte">Contáctanos para Soporte</a></p>
             </section>
 
         </main>
     </div>
 </div>
 
-<!-- El archivo JS principal (funciones.js) es necesario para el carrito, etc. -->
 <script src="Sitio web BookMood/Pagina principal/funciones.js"></script>
 <script src="funcionconfiguracion.js"></script>
 </body>

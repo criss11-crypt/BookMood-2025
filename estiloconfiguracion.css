@@ -145,6 +145,7 @@
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
+    color: #333; /* Texto por defecto en modo claro */
 }
 
 .btn-guardar {
@@ -297,9 +298,10 @@ input:checked + .slider:before {
 /* --- Modo Oscuro (se activa con JS) --- */
 body.dark-mode {
     background: #1e1e1e;
-    color: #ecf0f1;
+    color: #ecf0f1; /* Color base del texto */
 }
 
+/* Asegura que todos los contenedores principales y sub-contenedores sean oscuros */
 body.dark-mode .settings-container h1,
 body.dark-mode .settings-section h2,
 body.dark-mode .settings-section h3,
@@ -310,6 +312,24 @@ body.dark-mode header {
     color: #ecf0f1;
 }
 
+/* Asegura que TODO el texto sea blanco o claro */
+body.dark-mode .settings-container h1,
+body.dark-mode .settings-section h2,
+body.dark-mode .settings-section h3,
+body.dark-mode .section-description,
+body.dark-mode .setting-form label, /* Etiquetas de formulario */
+body.dark-mode .toggle-option span, /* Texto de los toggles */
+body.dark-mode .list-management li, /* Texto de las listas */
+body.dark-mode a:not(.btn-guardar):not(.btn-accion) { /* Enlaces que no son botones */
+    color: #ecf0f1 !important; /* Texto blanco forzado */
+    border-bottom-color: #3e3e3e !important; /* Bordes más suaves */
+}
+
+body.dark-mode .legal-link {
+    color: #79bbff !important; /* Enlaces legales en azul claro */
+}
+
+
 body.dark-mode .nav-item {
     color: #ddd;
 }
@@ -317,13 +337,48 @@ body.dark-mode .nav-item:hover {
     background: #3e3e3e;
     color: #ecf0f1;
 }
+body.dark-mode .nav-item.active {
+    background-color: #3498db; 
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
 
+body.dark-mode .nav-item.logout {
+    color: #ff7f7f;
+    border-top: 1px solid #3e3e3e;
+}
+body.dark-mode .nav-item.logout:hover {
+    background: #443333;
+    color: #ff7f7f;
+}
+body.dark-mode .nav-item.logout .icon {
+    color: #ff7f7f;
+}
+
+/* Ajustes para inputs y selects en modo oscuro (IMPORTANTE: para texto blanco dentro de campos) */
 body.dark-mode .setting-form input,
 body.dark-mode .setting-form select,
 body.dark-mode .wide-select {
-    background: #444;
-    border-color: #555;
+    background: #3e3e3e;
+    color: #ecf0f1; /* Texto de input/select en blanco */
+    border: 1px solid #555;
+}
+
+body.dark-mode .list-management li {
+    border-bottom: 1px dotted #555;
+}
+
+body.dark-mode .toggle-option {
+    border-bottom: 1px solid #555;
+}
+
+body.dark-mode .btn-accion {
+    background-color: #3e3e3e;
     color: #ecf0f1;
+    border: 1px solid #555;
+}
+body.dark-mode .btn-accion:hover {
+    background-color: #555;
 }
 
 /* Media Query para móviles */
